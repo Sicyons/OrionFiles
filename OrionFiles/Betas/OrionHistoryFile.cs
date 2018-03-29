@@ -6,7 +6,7 @@ using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using OrionCore.ErrorManagement;
 
-namespace OrionFiles.Betas
+namespace OrionFiles
 {
     public class OrionHistoryFile : OrionFile
     {

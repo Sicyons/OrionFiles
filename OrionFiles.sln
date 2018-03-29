@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OrionFiles", "OrionFiles\Or
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OrionCore", "..\OrionCore\OrionCore\OrionCore.csproj", "{BD00B457-50D5-48BB-B7CB-EA2704D19592}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OrionFilesTests", "OrionFilesTests\OrionFilesTests.csproj", "{7C6FBC76-3ACB-4F6B-9872-59132E6BF79F}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -31,6 +33,14 @@ Global
 		{BD00B457-50D5-48BB-B7CB-EA2704D19592}.Release|Any CPU.Build.0 = Release|Any CPU
 		{BD00B457-50D5-48BB-B7CB-EA2704D19592}.Release|x86.ActiveCfg = Release|x86
 		{BD00B457-50D5-48BB-B7CB-EA2704D19592}.Release|x86.Build.0 = Release|x86
+		{7C6FBC76-3ACB-4F6B-9872-59132E6BF79F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7C6FBC76-3ACB-4F6B-9872-59132E6BF79F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7C6FBC76-3ACB-4F6B-9872-59132E6BF79F}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{7C6FBC76-3ACB-4F6B-9872-59132E6BF79F}.Debug|x86.Build.0 = Debug|Any CPU
+		{7C6FBC76-3ACB-4F6B-9872-59132E6BF79F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7C6FBC76-3ACB-4F6B-9872-59132E6BF79F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7C6FBC76-3ACB-4F6B-9872-59132E6BF79F}.Release|x86.ActiveCfg = Release|Any CPU
+		{7C6FBC76-3ACB-4F6B-9872-59132E6BF79F}.Release|x86.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
