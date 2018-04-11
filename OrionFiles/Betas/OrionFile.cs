@@ -1,10 +1,11 @@
 ﻿using System;
 using System.IO;
 using OrionCore.ErrorManagement;
+using OrionCore.LogManagement;
 
 namespace OrionFiles
 {
-    public abstract class OrionFile : IOrionErrorLogManager
+    public abstract class OrionFile : IOrionLogManager
     {
         #region Properties
         public String FilePath { get; private set; }
@@ -23,7 +24,7 @@ namespace OrionFiles
         #endregion
 
         #region Parent method implementations
-        public abstract Boolean LogError(StructOrionErrorLogInfos errorLog);
+        public abstract Boolean SaveLog(OrionLogInfos log);
         #endregion
 
         #region Protected interface

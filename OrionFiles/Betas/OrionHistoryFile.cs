@@ -5,6 +5,7 @@ using System.Globalization;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using OrionCore.ErrorManagement;
+using OrionCore.LogManagement;
 
 namespace OrionFiles
 {
@@ -22,7 +23,7 @@ namespace OrionFiles
         #endregion
 
         #region Parent methods implementation
-        public override Boolean LogError(StructOrionErrorLogInfos errorLog)
+        public override Boolean SaveLog(OrionLogInfos log)
         {
             OrionException xException;
             StreamReader xStreamReader;
@@ -50,18 +51,19 @@ namespace OrionFiles
                     xStreamReader.Close();
                     xStreamReader = null;
                 }
-
+                
                 xStreamWriter = File.CreateText(this.FilePath);
 
-                xStreamWriter.WriteLine("Application source : " + errorLog.SourceApplicationName);
+                xStreamWriter.WriteLine("********** " + log.EventType.ToString().ToUpperInvariant() + " **********");
+                xStreamWriter.WriteLine("Application source : " + log.SourceApplicationName);
 
                 xStreamWriter.WriteLine();
                 xStreamWriter.WriteLine(new String('-', 70));
-                xStreamWriter.WriteLine((errorLog.LogDate.ToString("yyyy/MM/dd HH:mm:ss", CultureInfo.CurrentCulture) + ": ").PadLeft(OrionHistoryFile.iMARGIN) + errorLog.LogMessage);
+                xStreamWriter.WriteLine((log.LogDate.ToString("yyyy/MM/dd HH:mm:ss", CultureInfo.CurrentCulture) + ": ").PadLeft(OrionHistoryFile.iMARGIN) + log.LogMessage);
 
-                if (errorLog.SourceException != null)
+                if (log.SourceException != null)
                 {
-                    strNewLines = this.ParseException(0, errorLog.SourceException, false);
+                    strNewLines = this.ParseException(0, log.SourceException, false);
                     for (Int32 iLineCounter = 0; iLineCounter < strNewLines.Count; iLineCounter++)
                         xStreamWriter.WriteLine(strNewLines[iLineCounter]);
                 }
@@ -112,7 +114,7 @@ namespace OrionFiles
             if (xException != null) throw xException;
 
             return true;
-        }// LogError()
+        }// SaveLog()
         #endregion
 
         #region Private procedures
@@ -147,7 +149,7 @@ namespace OrionFiles
 
             if (Environment.StackTrace != null)
             {
-                strStackTraceLines = OrionErrorManager.ParseStackTrace();
+                //strStackTraceLines = OrionLogManager.ParseStackTrace();
                 if (strStackTraceLines.Count > 0)
                 {
                     strExceptionLines.Add(strIndent + "Stack Trace: ".PadLeft(OrionHistoryFile.iMARGIN + 17) + strStackTraceLines[0]);
